@@ -71,6 +71,7 @@ export default class Level extends Phaser.Scene {
 		// collider_3
 		this.physics.add.collider(player2, p_Platform);
 
+		this.platformGroup = platformGroup;
 		this.player2 = player2;
 		this.player1 = player1;
 		this.leftKey = leftKey;
@@ -83,6 +84,8 @@ export default class Level extends Phaser.Scene {
 		this.events.emit("scene-awake");
 	}
 
+	/** @type {PlatformGroup} */
+	platformGroup;
 	/** @type {P_Player2} */
 	player2;
 	/** @type {P_Player} */
@@ -111,8 +114,9 @@ export default class Level extends Phaser.Scene {
 		const width = this.game.config.width;
 		const height = this.game.config.height;
 
-		this.player1.setPosition(3 * width / 4, 7 * height / 8);
-		this.player2.setPosition(width / 4, 7 * height / 8);
+		this.player1.setPosition(width / 4, 7 * height / 8);
+		this.player2.setPosition(3 * width / 4, 7 * height / 8);
+
 	}
 
 	update()
@@ -154,10 +158,11 @@ export default class Level extends Phaser.Scene {
 			this.player2.jump();
 		}
 
+		let y = this.player1.y < this.player2.y ? this.player1.y : this.player2.y;
+		y -= this.game.config.height / 2 - 30;
+		this.cameras.main.centerOnY(y);
 
-
-		let y = this.player1.y > this.player2.y ? this.player1.y : this.player2.y;
-		//this.cameras.main.scrollY = y - this.cameras.main.height / 2;
+		this.platformGroup.update();
 	}
 	/* END-USER-CODE */
 }

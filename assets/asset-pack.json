@@ -2,6 +2,11 @@
     "section1": {
         "files": [
             {
+                "url": "assets/assets/animations.json",
+                "type": "animation",
+                "key": "animations"
+            },
+            {
                 "url": "assets/assets/metroid_infinite_jumper/assets/background/background.png",
                 "type": "image",
                 "key": "background"

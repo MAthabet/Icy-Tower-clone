@@ -14,7 +14,8 @@
         {
             "prefabId": "3fb3b195-c20f-49ef-b085-586b2e02634c",
             "id": "1fbcce09-facd-4697-afa2-409f07041635",
-            "label": "platformGroup"
+            "label": "platformGroup",
+            "scope": "CLASS"
         },
         {
             "prefabId": "fc3ec1bd-aa37-4808-9933-fb2d83db5882",

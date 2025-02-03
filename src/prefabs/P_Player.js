@@ -22,14 +22,38 @@ export default class P_Player extends Phaser.Physics.Arcade.Sprite {
 	}
 
 	/* START-USER-CODE */
+	update()
+	{
+		if(this.body.touching.down)
+		{
+			this.play("idle", true);
+		}
+	}
 	jump()
 	{
-		this.body.velocity.y = -300;
+		if(!this.body.touching.down)
+		{
+			return;
+		}
+		this.play("jump");
+		this.once(Phaser.Animations.Events.ANIMATION_COMPLETE_KEY + "jump", () => {
+			console.log("jump complete");
+			this.play("spin");
+		});
+		this.body.velocity.y = -400;
 	}
 
 	move(direction)
 	{
 		this.body.velocity.x =  direction*100;
+		if(direction > 0)
+		{
+			this.flipX = false;
+		}
+		else
+		{
+			this.flipX = true;
+		}
 	}
 
 	// Write your code here.
