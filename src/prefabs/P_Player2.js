@@ -20,10 +20,19 @@ export default class P_Player2 extends Phaser.Physics.Arcade.Sprite {
 		// Write your code here.
 		/* END-USER-CTR-CODE */
 	}
-
-	/* START-USER-CODE */
+	
 
 	// Write your code here.
+	jump()
+	{
+		this.body.velocity.y = -300;
+	}
+
+	move(direction)
+	{
+		this.body.velocity.x =  direction*100;
+		console.log(direction);
+	}
 
 	/* END-USER-CODE */
 }

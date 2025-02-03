@@ -14,6 +14,8 @@ export default class P_Platform extends Phaser.Physics.Arcade.Image {
 		scene.physics.add.existing(this, false);
 		this.body.allowGravity = false;
 		this.body.checkCollision.down = false;
+		this.body.checkCollision.left = false;
+		this.body.checkCollision.right = false;
 		this.body.pushable = false;
 		this.body.setSize(80, 16, false);
 

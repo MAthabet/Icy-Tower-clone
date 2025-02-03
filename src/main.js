@@ -4,8 +4,8 @@ import Preload from "./scenes/Preload.js";
 window.addEventListener('load', function () {
 
 	var game = new Phaser.Game({
-		width: 430,
-		height: 932,
+		width: 1200,
+		height: 600,
 		type: Phaser.AUTO,
         backgroundColor: "#242424",
 		scale: {
