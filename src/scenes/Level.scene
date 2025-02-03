@@ -57,6 +57,22 @@
             "y": 597,
             "scaleX": 100,
             "scaleY": 1
+        },
+        {
+            "prefabId": "7bf8a19d-1211-4b59-bb38-b034085b171f",
+            "id": "bad62058-82e8-4cb7-9abc-438b5e96049a",
+            "label": "onAwakeActionScript",
+            "list": [
+                {
+                    "prefabId": "0ed1159f-ee3d-4ce9-82da-e76768c045b5",
+                    "id": "dbdf25fe-c4bc-495c-aaf7-a4dee25437ae",
+                    "unlock": [
+                        "sceneKey"
+                    ],
+                    "label": "launchSceneActionScript",
+                    "sceneKey": "UI"
+                }
+            ]
         }
     ],
     "plainObjects": [

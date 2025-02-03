@@ -1,5 +1,6 @@
 import Level from "./scenes/Level.js";
 import Preload from "./scenes/Preload.js";
+import UI from "./scenes/UI.js";
 
 window.addEventListener('load', function () {
 
@@ -30,4 +31,5 @@ window.addEventListener('load', function () {
 
 	game.scene.add("Level", Level);
 	game.scene.add("Preload", Preload, true);
+	game.scene.add("UI", UI);
 });

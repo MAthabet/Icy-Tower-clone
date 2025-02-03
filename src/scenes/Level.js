@@ -7,6 +7,8 @@ import PlatformGroup from "../prefabs/PlatformGroup.js";
 import P_Player2 from "../prefabs/P_Player2.js";
 import P_Player from "../prefabs/P_Player.js";
 import P_Platform from "../prefabs/P_Platform.js";
+import OnAwakeActionScript from "../scriptnodes/utils/OnAwakeActionScript.js";
+import LaunchSceneActionScript from "../scriptnodes/scene/LaunchSceneActionScript.js";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -59,6 +61,12 @@ export default class Level extends Phaser.Scene {
 		p_Platform.scaleX = 100;
 		p_Platform.scaleY = 1;
 
+		// onAwakeActionScript
+		const onAwakeActionScript = new OnAwakeActionScript(this);
+
+		// launchSceneActionScript
+		const launchSceneActionScript = new LaunchSceneActionScript(onAwakeActionScript);
+
 		// collider
 		this.physics.add.collider(player1, platformGroup.group);
 
@@ -70,6 +78,9 @@ export default class Level extends Phaser.Scene {
 
 		// collider_3
 		this.physics.add.collider(player2, p_Platform);
+
+		// launchSceneActionScript (prefab fields)
+		launchSceneActionScript.sceneKey = "UI";
 
 		this.platformGroup = platformGroup;
 		this.player2 = player2;
@@ -104,7 +115,7 @@ export default class Level extends Phaser.Scene {
 	rightKey2;
 
 	/* START-USER-CODE */
-
+	isGameOver = false;
 	// Write more your code here
 
 	create() 
@@ -121,6 +132,10 @@ export default class Level extends Phaser.Scene {
 
 	update()
 	{
+		if(this.isGameOver)
+		{
+			return;
+		}
 		//player 1 input
 		if(this.leftKey.isDown)
 		{
@@ -159,10 +174,21 @@ export default class Level extends Phaser.Scene {
 		}
 
 		let y = this.player1.y < this.player2.y ? this.player1.y : this.player2.y;
-		y -= this.game.config.height / 2 - 30;
+		//y -= this.game.config.height / 2 - 30;
 		this.cameras.main.centerOnY(y);
+		
+		if (this.player1.y - y > this.game.config.height / 2) 
+		{
+			this.scene.get("UI").whoWon(2);
+			this.isGameOver = true;
+		}
 
-		this.platformGroup.update();
+		else if (this.player2.y - y > this.game.config.height / 2) 
+		{
+			this.scene.get("UI").whoWon(1);
+			this.isGameOver = true;
+		}
+
 	}
 	/* END-USER-CODE */
 }
