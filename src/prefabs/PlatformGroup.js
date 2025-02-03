@@ -62,13 +62,6 @@ export default class PlatformGroup extends Phaser.GameObjects.Layer {
 				child.x = Phaser.Math.Between(this.scene.game.config.width / 2, this.scene.game.config.width);
 			}
 
-			if (this.enableMovingPlatforms) {
-				if (Phaser.Math.RND.between(0, 1) === 1) {
-					child.startPlatformMovement();
-				} else {
-					child.stopPlatformMovement();
-				}
-			}
 		});
 	// Write your code here.
 

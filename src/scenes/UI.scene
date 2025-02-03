@@ -16,8 +16,8 @@
             "id": "4b3a0fbe-4bb9-45f8-a527-91a73c49d56e",
             "label": "score1",
             "scope": "CLASS",
-            "x": 1141,
-            "y": 27,
+            "x": 916,
+            "y": 24,
             "scaleX": 5,
             "scaleY": 5,
             "text": "0\n"
@@ -27,8 +27,8 @@
             "id": "c4830813-6905-4544-94ff-1bf413c5130b",
             "label": "score",
             "scope": "CLASS",
-            "x": 10,
-            "y": 27,
+            "x": 263,
+            "y": 24,
             "scaleX": 5,
             "scaleY": 5,
             "text": "0\n"

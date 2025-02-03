@@ -117,6 +117,8 @@ export default class Level extends Phaser.Scene {
 	/* START-USER-CODE */
 	isGameOver = false;
 	// Write more your code here
+	yStart1;
+	yStart2;
 
 	create() 
 	{
@@ -127,11 +129,16 @@ export default class Level extends Phaser.Scene {
 
 		this.player1.setPosition(width / 4, 7 * height / 8);
 		this.player2.setPosition(3 * width / 4, 7 * height / 8);
+		this.yStart1 = this.player1.y;
+		this.yStart2 = this.player2.y;
 
 	}
 
 	update()
 	{
+		let score1 = Math.floor(-this.player1.y + this.yStart1);
+
+		let score2 = Math.floor(-this.player2.y + this.yStart2);
 		if(this.isGameOver)
 		{
 			return;
@@ -176,7 +183,10 @@ export default class Level extends Phaser.Scene {
 		let y = this.player1.y < this.player2.y ? this.player1.y : this.player2.y;
 		//y -= this.game.config.height / 2 - 30;
 		this.cameras.main.centerOnY(y);
-		
+
+		this.scene.get("UI").updateScore(1, score1 > 0 ? score1 : 0);
+		this.scene.get("UI").updateScore(2, score2 > 0 ? score2 : 0);
+
 		if (this.player1.y - y > this.game.config.height / 2) 
 		{
 			this.scene.get("UI").whoWon(2);

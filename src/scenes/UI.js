@@ -20,14 +20,14 @@ export default class UI extends Phaser.Scene {
 	editorCreate() {
 
 		// score1
-		const score1 = this.add.text(1141, 27, "", {});
+		const score1 = this.add.text(916, 24, "", {});
 		score1.scaleX = 5;
 		score1.scaleY = 5;
 		score1.text = "0\n";
 		score1.setStyle({  });
 
 		// score
-		const score = this.add.text(10, 27, "", {});
+		const score = this.add.text(263, 24, "", {});
 		score.scaleX = 5;
 		score.scaleY = 5;
 		score.text = "0\n";
