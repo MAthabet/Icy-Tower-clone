@@ -13,19 +13,51 @@
     },
     "displayList": [
         {
-            "type": "ArcadeImage",
-            "id": "fcf55dbe-947c-4d06-8369-0e55f72b9c70",
-            "label": "arcadeimage_1",
-            "texture": {
-                "key": "platform"
-            },
-            "x": 253,
-            "y": 433,
-            "body.width": 80,
-            "body.height": 16
+            "prefabId": "3fb3b195-c20f-49ef-b085-586b2e02634c",
+            "id": "1fbcce09-facd-4697-afa2-409f07041635",
+            "label": "platformGroup"
+        },
+        {
+            "prefabId": "fc3ec1bd-aa37-4808-9933-fb2d83db5882",
+            "id": "af382e17-c360-45bd-80cf-dc63b9f67031",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "p_Player2",
+            "x": 79,
+            "y": 749
+        },
+        {
+            "prefabId": "4ac99435-a3ea-40a9-9c4d-ca43c3e18be9",
+            "id": "c94faf43-ffaf-4372-bbfc-95fcb42e8bce",
+            "unlock": [
+                "x",
+                "y"
+            ],
+            "label": "p_Player",
+            "x": 344,
+            "y": 669
         }
     ],
-    "plainObjects": [],
+    "plainObjects": [
+        {
+            "id": "b0ba3a37-a3a7-4a83-b534-0b13972d16bd",
+            "type": "Collider",
+            "label": "collider",
+            "scope": "LOCAL",
+            "object1": "p_Player",
+            "object2": "platformGroup.group"
+        },
+        {
+            "id": "84400676-a3c1-405f-90f2-b3d697242f7e",
+            "type": "Collider",
+            "label": "collider_1",
+            "scope": "LOCAL",
+            "object1": "p_Player2",
+            "object2": "platformGroup.group"
+        }
+    ],
     "meta": {
         "app": "Phaser Editor - Scene Editor",
         "url": "https://phaser.io/editor",

@@ -3,6 +3,9 @@
 
 /* START OF COMPILED CODE */
 
+import PlatformGroup from "../prefabs/PlatformGroup.js";
+import P_Player2 from "../prefabs/P_Player2.js";
+import P_Player from "../prefabs/P_Player.js";
 /* START-USER-IMPORTS */
 /* END-USER-IMPORTS */
 
@@ -19,9 +22,24 @@ export default class Level extends Phaser.Scene {
 	/** @returns {void} */
 	editorCreate() {
 
-		// arcadeimage_1
-		const arcadeimage_1 = this.physics.add.image(253, 433, "platform");
-		arcadeimage_1.body.setSize(80, 16, false);
+		// platformGroup
+		const platformGroup = new PlatformGroup(this);
+		this.add.existing(platformGroup);
+
+		// p_Player2
+		const p_Player2 = new P_Player2(this, this.game.config.width/4, 7*this.game.config.height/8);
+
+		this.add.existing(p_Player2);
+
+		// p_Player
+		const p_Player = new P_Player(this, 3*this.game.config.width/4, 7*this.game.config.height/8);
+		this.add.existing(p_Player);
+
+		// collider
+		this.physics.add.collider(p_Player, platformGroup.group);
+
+		// collider_1
+		this.physics.add.collider(p_Player2, platformGroup.group);
 
 		this.events.emit("scene-awake");
 	}
