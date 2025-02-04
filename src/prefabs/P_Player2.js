@@ -27,7 +27,7 @@ export default class P_Player2 extends Phaser.Physics.Arcade.Sprite {
 	{
 		if(this.body.touching.down)
 		{
-				this.play("idle", true);
+			this.play("idle", true);
 		}
 	}
 	jump()
@@ -38,7 +38,6 @@ export default class P_Player2 extends Phaser.Physics.Arcade.Sprite {
 			}
 		this.play("jump");
 		this.once(Phaser.Animations.Events.ANIMATION_COMPLETE_KEY + "jump", () => {
-			console.log("jump complete");
 			this.play("spin");
 		});
 		this.body.velocity.y = -400;
