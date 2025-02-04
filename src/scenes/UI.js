@@ -87,12 +87,16 @@ export default class UI extends Phaser.Scene {
 		{
 
 			this.gameover.text = "You Won";
+			this.gameover.setColor("#00ff00");
 			this.gameover1.text = "You Lost";
+			this.gameover1.setColor("#ff0000");
 		}
 		else 
 		{
 			this.gameover1.text = "You Won";
+			this.gameover1.setColor("#00ff00");
 			this.gameover.text = "You Lost";
+			this.gameover.setColor("#ff0000");
 		}
 		this.gameover.visible = true;
 			this.gameover1.visible = true;

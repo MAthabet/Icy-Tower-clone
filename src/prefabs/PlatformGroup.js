@@ -50,10 +50,10 @@ export default class PlatformGroup extends Phaser.GameObjects.Layer {
 
 		let childrenToMoveYOffset = 0;
 		childrenToMove.forEach((child) => {
-
+			const topMostPlatformYPosition = Math.min(...children.map(c => c.y));
 			child.x = Phaser.Math.Between(10, 200);
 			childrenToMoveYOffset += Phaser.Math.Between(10, 40);
-			child.y = scrollY - childrenToMoveYOffset;
+			child.y = topMostPlatformYPosition - childrenToMoveYOffset;
 
 			const index = children.indexOf(child);
 			if (index % 2 === 0) {
@@ -61,12 +61,11 @@ export default class PlatformGroup extends Phaser.GameObjects.Layer {
 			} else {
 				child.x = Phaser.Math.Between(this.scene.game.config.width / 2, this.scene.game.config.width);
 			}
-
 		});
-	// Write your code here.
+		// Write your code here.
 
-	/* END-USER-CODE */
-}
+		/* END-USER-CODE */
+	}
 
 /* END OF COMPILED CODE */
 

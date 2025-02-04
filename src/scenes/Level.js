@@ -141,7 +141,7 @@ export default class Level extends Phaser.Scene {
 		let score2 = Math.floor(-this.player2.y + this.yStart2);
 		if(this.isGameOver)
 		{
-			return;
+			//return;
 		}
 		//player 1 input
 		if(this.leftKey.isDown)
